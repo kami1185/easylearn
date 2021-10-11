@@ -68,10 +68,10 @@ and open the template in the editor.
 									<a class="nav-link" href="index.php">Home</a>
 									</li>
 									<li class="nav-item">
-									<a id="utente" class="nav-link" href="#">Utenti</a>
+									<a id="scheda" class="nav-link" href="#">Scheda Utente</a>
 									</li>
 									<li class="nav-item">
-									<a id="scheda" class="nav-link" href="#">Scheda Utente</a>
+									<a id="utente" class="nav-link" href="#">Utenti</a>
 									</li>
 								</ul>
 							</div>

@@ -26,6 +26,17 @@
   background-image: url("../images/page-title.jpg");
 }
 
+.title-scheda{
+  text-shadow: none; 
+  padding: 10px; 
+  text-align: left; 
+  width: 100%; 
+  background-color: #ffbc3b;
+  font-size: 22px; 
+  font-weight: bold;  
+  color: #ffffff;
+}
+
 body {
   line-height: 1.2;
   font-family: "Poppins", sans-serif;
@@ -478,7 +489,7 @@ a h4:hover {
 
 /* page title */
 .page-title-section {
-  padding: 200px 0 80px;
+  padding: 180px 0 80px;
 }
 
 .custom-breadcrumb li.nasted {

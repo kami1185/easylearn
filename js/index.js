@@ -34,24 +34,15 @@ document.addEventListener("DOMContentLoaded", function() {
     //     //return data;
     // }
 
-    document.getElementById('utente').addEventListener('click', function () {
+    document.getElementById('scheda').addEventListener('click', function () {
 
-        $("#containerData").load("html/utente.html", function( response, status, xhr ) {
+        $("#containerData").load("html/scheda.html", function( response, status, xhr ) {
             if ( status === "error" ) {
                 var msg = "Sorry but there was an error: ";
                 alert(msg + xhr.status + " " + xhr.statusText);
             }
-            else{
-                let el_title = document.getElementById('page-title');
-                el_title.classList.add('show-content');
-                el_title.classList.remove('hide-content');
-                let el_slide = document.getElementById('background');
-                el_slide.classList.add('hide-content');
-                //el_slide.classList.remove('show-content');
-                let el_table = document.getElementById('containerData');
-                el_table.classList.add('show-content');
-                el_table.classList.remove('hide-content');
-            }
+            else
+                showData();
         });
 
         // fetch("html/utente.html" /*, options */)
@@ -63,11 +54,36 @@ document.addEventListener("DOMContentLoaded", function() {
         //     console.warn(error);
         // });
     });
+
+    document.getElementById('utente').addEventListener('click', function () {
+
+        $("#containerData").load("html/utente.html", function( response, status, xhr ) {
+            if ( status === "error" ) {
+                var msg = "Sorry but there was an error: ";
+                alert(msg + xhr.status + " " + xhr.statusText);
+            }
+            else
+                showData();
+        });
+
+    });
+
+    function showData(){
+        let el_title = document.getElementById('page-title');
+                el_title.classList.add('show-content');
+                el_title.classList.remove('hide-content');
+                let el_slide = document.getElementById('background');
+                el_slide.classList.add('hide-content');
+                //el_slide.classList.remove('show-content');
+                let el_table = document.getElementById('containerData');
+                el_table.classList.add('show-content');
+                el_table.classList.remove('hide-content');
+    }
     
 });
 
 window.addEventListener('scroll', function() {
-    
+
     let height=  document.querySelector('.top-header').clientHeight;
     var rect = document.querySelector('.header').getBoundingClientRect();
     let top = rect.top + window.scrollY; 
