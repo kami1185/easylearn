@@ -1,8 +1,6 @@
 <!DOCTYPE html>
 <!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
+index php
 -->
 <html>
     <head>
@@ -17,7 +15,6 @@ and open the template in the editor.
 
 		<!-- bootstrap versione 4.4.1 e validator-->
 		<link rel="stylesheet" href="css/bootstrap.css">
-
 		<link href="fontawesome5.13.0/css/fontawesome.css" rel="stylesheet">
 		<link href="fontawesome5.13.0/css/brands.css" rel="stylesheet">
 		<link href="fontawesome5.13.0/css/solid.css" rel="stylesheet">
@@ -33,52 +30,44 @@ and open the template in the editor.
 	</head>
     <body>
         <?php
-			//require_once('connect_db.php');
 			include('connect_db.php');
 		?>
 
 		<header class="fixed-top header">
 			
-				<div class="top-header py-2 bg-white">
-					<div class="container">
-					<div class="row no-gutters">
-						<div class="col-lg-4 text-center text-lg-left">
+			<div class="top-header py-2 bg-white">
+				<div class="container">
+				<div class="row no-gutters">
+					<div class="col-lg-4 text-center text-lg-left">
 						<a class="text-color mr-3" href="callto:+443003030266"><strong>Telefono</strong> +3478222165</a>
-						<ul class="list-inline d-inline">
-							<li class="list-inline-item mx-0"><a class="d-inline-block p-2 text-color" href="https://www.facebook.com/andrescamilo.duarte" target="_blank"><i class="ti-facebook"></i></a></li>
-							<li class="list-inline-item mx-0"><a class="d-inline-block p-2 text-color" href="https://twitter.com/kamilo_andres" target="_blank"><i class="ti-twitter-alt"></i></a></li>
-							<li class="list-inline-item mx-0"><a class="d-inline-block p-2 text-color" href="https://www.linkedin.com/in/andres-camilo-duarte1185/" target="_blank"><i class="ti-linkedin"></i></a></li>
-							<li class="list-inline-item mx-0"><a class="d-inline-block p-2 text-color" href="https://www.instagram.com/andres.camilo.d/" target="_blank"><i class="ti-instagram"></i></a></li>
-						</ul>
-						</div>
-					
 					</div>
-					</div>
+				
 				</div>
-			
-			<div class="row">
-				<div class="navigation w-100">
-					<div class="container">
-						<nav class="navbar navbar-expand-lg navbar-dark p-0">
-							<a class="navbar-brand" href="index.htmlphp"><img src="images/logo.png" alt="logo"></a>
-							
-							<div class="collapse navbar-collapse" id="navigation">
-								<ul class="navbar-nav ml-auto text-center">
-									<li class="nav-item active">
-									<a class="nav-link" href="index.php">Home</a>
-									</li>
-									<li class="nav-item">
-									<a id="scheda" class="nav-link" href="#">Scheda Utente</a>
-									</li>
-									<li class="nav-item">
-									<a id="utente" class="nav-link" href="#">Utenti</a>
-									</li>
-								</ul>
-							</div>
-						</nav>
-					</div>
 				</div>
 			</div>
+
+			<div class="navigation w-100">
+				<div class="container">
+					<nav class="navbar navbar-expand-lg navbar-dark p-0">
+						<a class="navbar-brand" href="index.php"><img src="images/logo.png" alt="logo"></a>
+						
+						<div class="collapse navbar-collapse" id="navigation">
+							<ul class="navbar-nav ml-auto text-center">
+								<li class="nav-item active">
+								<a class="nav-link" href="index.php">Home</a>
+								</li>
+								<li class="nav-item">
+								<a id="scheda" class="nav-link" href="#">Scheda Utente</a>
+								</li>
+								<li class="nav-item">
+								<a id="utente" class="nav-link" href="#">Utenti</a>
+								</li>
+							</ul>
+						</div>
+					</nav>
+				</div>
+			</div>
+			
 		</header>
 
 		<section id="background" class="hero-section overlay bg-cover" >
@@ -101,7 +90,7 @@ and open the template in the editor.
 					<li class="list-inline-item"><a class="h2 text-primary font-secondary" href="#">Tabella Utenti</a></li>
 					
 					</ul>
-					<p class="text-lighten">Guarda o elimina un utente.</p>
+					<p class=" text-lighten">Guarda o elimina un utente.</p>
 				</div>
 				</div>
 			</div>
@@ -114,24 +103,16 @@ and open the template in the editor.
 		<footer>
 			<div class="copyright py-4 bg-footer">
 				<div class="container">
-				<div class="row">
-					<div class="col-sm-7 text-sm-left text-center">
-					<p class="mb-0">Copyright
-						<script>
-						var CurrentYear = new Date().getFullYear()
-						document.write(CurrentYear)
-						</script> 
-						© Andres C@milo Duarte Eraso</p>
+					<div class="row">
+						<div class="col-sm-7 text-sm-left text-center">
+						<p class="mb-0">Copyright
+							<script>
+							var CurrentYear = new Date().getFullYear()
+							document.write(CurrentYear)
+							</script> 
+							© Andres C@milo Duarte Eraso</p>
+						</div>
 					</div>
-					<div class="col-sm-5 text-sm-right text-center">
-					<ul class="list-inline">
-						<li class="list-inline-item"><a class="d-inline-block p-2" href="https://www.facebook.com/andrescamilo.duarte" target="_blank"><i class="ti-facebook text-primary"></i></a></li>
-						<li class="list-inline-item"><a class="d-inline-block p-2" href="https://twitter.com/kamilo_andres" target="_blank"><i class="ti-twitter-alt text-primary"></i></a></li>
-						<li class="list-inline-item"><a class="d-inline-block p-2" href="https://www.linkedin.com/in/andres-camilo-duarte1185/" target="_blank"><i class="ti-linkedin text-primary"></i></a></li>
-						<li class="list-inline-item"><a class="d-inline-block p-2" href="https://www.instagram.com/andres.camilo.d/" target="_blank"><i class="ti-instagram text-primary"></i></a></li>
-					</ul>
-					</div>
-				</div>
 				</div>
 			</div>
 		</footer>
