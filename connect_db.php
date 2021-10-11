@@ -12,13 +12,14 @@
         private $password = "";
         private $database = "easylearn";
 
-        protected function connect(){
+        function connect(){
             try {
                 //connessione al database mysql 
                 $connection = new PDO('mysql:host=' . $this -> hostname . ';dbname=' . $this -> database, $this -> username, $this -> password);
                 //Handling errori PDO
                 $connection->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
                 $connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+                $connection->setAttribute(PDO::ATTR_EMULATE_PREPARES,FALSE);
                 //$connection->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
                 //echo "Database connected successfully";
                 return $connection;
@@ -63,7 +64,6 @@
         }
 
         function save($query){
-            
             $statement = $this->connect()->prepare($query);
             return $statement;
         }

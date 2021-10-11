@@ -34,7 +34,7 @@
             }
         }
     }
-    
+
     $('#anno').datetimepicker({
         format: "YYYY-MM-DD"
     });
@@ -106,17 +106,26 @@
         //                         </div>`;
     });
 
-    document.getElementById('saveData').addEventListener('click', function () {
+    document.getElementById('formUtente').addEventListener('submit', function (e) {
     // $('#saveData').click(function() {
 
-        // var form_data = new FormData(document.getElementById("formUtente"));
+        e.preventDefault();
+
+        // let form = document.getElementById("formUtente");
+
+        // var form_data = new FormData(e.target);
+        
+
+        // console.log(JSON.stringify(Object.fromEntries(form_data)))
         
         // var data1 = JSON.stringify($('#formUtente').serializeJSON());
+        // console.log("jquery: ",data1)
 
         // fetch('register-data.php', {
 		// method: 'POST',
-        // body: JSON.stringify({data: data1}),
-		// //body: JSON.stringify({data: Object.fromEntries(form_data)}),
+        // body: JSON.stringify({data: [$('#formUtente').serializeJSON()]}),
+        // //body: JSON.stringify(serializeForm(e.target)),
+		// //body: JSON.stringify({data: [Object.fromEntries(form_data)]}),
 		// headers: {
 		// 	'Content-type': 'application/json; charset=UTF-8'
 		// }

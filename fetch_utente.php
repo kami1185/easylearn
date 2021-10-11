@@ -1,12 +1,12 @@
 <?php
-//fetch.php
-    // $connect = mysqli_connect("localhost", "root", "", "testing");
+
     include 'connect_db.php';
 
-    $DB = new Database();
-    //$DB ->connect();
+    $idUtente = $_POST['id'];
 
-    $query = 'SELECT * FROM utente';
+    $DB = new Database();
+
+    $query = 'SELECT * FROM utente WHERE ';
 
     $res = $DB -> read($query);
 
@@ -15,7 +15,7 @@
     if($res -> rowCount() > 0){
         while($row = $res -> fetch())
         {
-            //printf ("%s %s\n", $row["nome"], $row["email"]);
+
             $sub_array = array();
             $sub_array[] = '<div contenteditable class="update" data-id="data1">' . $row["nome"] . '</div>';
             $sub_array[] = '<div contenteditable class="update" data-id="data2" data-column="cognome">' . $row["cognome"] . '</div>';
@@ -30,13 +30,7 @@
         }
     }
 
-    $output = array(
-        "draw"    => intval($_POST["draw"]),
-        "recordsTotal"  =>  $res -> rowCount(),
-        "recordsFiltered" => $res -> rowCount(),
-        "data"    => $data
-    );
 
-    echo json_encode($output);
+    echo json_encode($data);
 
 ?>
