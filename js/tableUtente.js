@@ -1,54 +1,58 @@
 
 
 
-function viewUtente(id){
+async function viewUtente(id){
 
-    $.ajax({
-        url: 'fetchUtente.php',
-        type: 'POST',
-        dataType: 'json',
-        contentType: 'application/json',
-        data: JSON.stringify({'data':id}),
-        success: function (data) {
+    try {
+        const response = await fetch('fetchUtente.php', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+              },
+            body: JSON.stringify({'data':id})
+        });
 
-            $("#containerData").load("html/scheda.html", function( response, status, xhr ) {
-                if ( status === "error" ) {
-                    var msg = "Sorry but there was an error: ";
-                    alert(msg + xhr.status + " " + xhr.statusText);
-                }
+        const data = await response.json(); // parsing dell'oggetto json
 
-                data.utente.forEach(elem => {
-                    let element = document.getElementById('formUtente');
-                    element.innerHTML +=   `<div class="form-group row"> 
-                                                    <input type="text"
-                                                        class="form-control hide-content" 
-                                                        id="idutente" 
-                                                        name="idutente"
-                                                        value="`+elem.id+`">
-                                            </div>`;
-                    
-                    document.getElementById('nomeUtente').value = elem.nome;
-                    document.getElementById('cognomeUtente').value = elem.cognome;
-                    document.getElementById('sesso').value = elem.sesso;
-                    document.getElementById('email').value = elem.email;
-                    document.getElementById('dataNascita').value = elem.datanascita;
+        if (!response.ok) {
+            const message = `An error has occured: ${response.status}`;
+            throw new Error(message)
+        }
 
-                });
+        $("#containerData").load("html/scheda.html", function( response, status, xhr ) {
+            
+            if ( status === "error" ) {
+                var msg = "Sorry but there was an error: ";
+                alert(msg + xhr.status + " " + xhr.statusText);
+            }
 
-                if (data.esperienze.length > 0)
-                    createEsperienze(data.esperienze)
+            data.utente.forEach(elem => {
+                let element = document.getElementById('formUtente');
+                element.innerHTML +=   `<div class="form-group row"> 
+                                                <input type="text"
+                                                    class="form-control hide-content" 
+                                                    id="idutente" 
+                                                    name="idutente"
+                                                    value="`+elem.id+`">
+                                        </div>`;
+                
+                document.getElementById('nomeUtente').value = elem.nome;
+                document.getElementById('cognomeUtente').value = elem.cognome;
+                document.getElementById('sesso').value = elem.sesso;
+                document.getElementById('email').value = elem.email;
+                document.getElementById('dataNascita').value = elem.datanascita;
 
             });
-        }
-    });
-    // fetch("html/utente.html" /*, options */)
-    // .then((response) => response.text())
-    // .then((html) => {
-    //     document.getElementById("containerData").innerHTML = html;
-    // })
-    // .catch((error) => {
-    //     console.warn(error);
-    // });
+
+            if (data.esperienze.length > 0)
+                createEsperienze(data.esperienze)
+
+        });
+    }
+    catch(error){
+        alert('Erroreee: - ' +  error.message)
+    }
+
 }
 
 function createEsperienze(arrayEsperienze){
