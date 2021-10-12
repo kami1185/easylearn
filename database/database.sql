@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 12-10-2021 a las 08:49:29
+-- Tiempo de generación: 12-10-2021 a las 09:56:04
 -- Versión del servidor: 10.4.17-MariaDB
 -- Versión de PHP: 7.4.15
 
@@ -44,12 +44,16 @@ CREATE TABLE `esperienze` (
 --
 
 INSERT INTO `esperienze` (`id`, `argomenti`, `annofrequenza`, `votazione`, `idutente`, `tipoentita`, `nomeentita`) VALUES
-(35, 'chimica', 2021, 28, 69, '1', NULL),
-(36, 'fisica', 2006, 28, 69, '1', NULL),
-(38, '', 0, 0, 71, '1', NULL),
-(42, 'chimica', 2021, 28, 75, '1', NULL),
-(43, 'fisica', 2006, 28, 75, '1', NULL),
-(44, 'c#', 2021, 24, 76, 'Istituto', 'politecnico');
+(35, 'chimica', 2021, 28, 69, 'universita', 'palermo'),
+(36, 'fisica', 2006, 28, 69, 'Istituto', 'palermo'),
+(38, '', 0, 0, 71, 'universita', 'palermo'),
+(42, 'chimica', 2021, 28, 75, 'Istituto', 'catania'),
+(43, 'fisica', 2006, 28, 75, 'universita', 'catania'),
+(44, 'c#', 2021, 24, 76, 'Istituto', 'politecnico'),
+(45, 'c#', 2021, 24, 77, 'universita', 'politecnico'),
+(46, 'c#', 2021, 24, 78, 'Istituto', 'politecnico'),
+(47, 'html', 2021, 25, 79, 'Istituto', 'cesmag'),
+(48, 'html', 2021, 25, 80, 'universita', 'cesmag');
 
 -- --------------------------------------------------------
 
@@ -74,7 +78,11 @@ INSERT INTO `utente` (`id`, `nome`, `cognome`, `sesso`, `email`, `datanascita`) 
 (69, 'andres camilo', 'eraso', 'asdf', 'acde100@gmail.com', '2021-10-11'),
 (71, 'karen', 'munoz', 'f', 'karen@gmail.com', '2021-10-25'),
 (75, 'andres camilo', 'duarte eraso', 'asdf', 'acde100@gmail.com', '2021-10-11'),
-(76, 'Alberto', 'Firenze', 'asdfds', 'alberto@gmail.it', '2021-10-12');
+(76, 'Alberto', 'Firenze', 'asdfds', 'alberto@gmail.it', '2021-10-12'),
+(77, 'Alberto', 'Firenze', 'asdfds', 'alberto@gmail.it', '2021-10-12'),
+(78, 'Alberto', 'Firenze', 'asdfds', 'alberto@gmail.it', '2021-10-12'),
+(79, 'antonio', 'conte', 'm', 'anto@gmail.com', '2021-10-05'),
+(80, 'antonio', 'norris', 'm', 'anto@gmail.com', '2021-10-05');
 
 --
 -- Índices para tablas volcadas
@@ -100,13 +108,13 @@ ALTER TABLE `utente`
 -- AUTO_INCREMENT de la tabla `esperienze`
 --
 ALTER TABLE `esperienze`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=49;
 
 --
 -- AUTO_INCREMENT de la tabla `utente`
 --
 ALTER TABLE `utente`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=77;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=81;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

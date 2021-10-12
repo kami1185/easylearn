@@ -10,32 +10,40 @@
 
     $datajson = json_decode($data);
 
+    //print_r($datajson);
+
     $nomeUtente = $datajson->nomeUtente;
     $cognomeUtente = $datajson->cognomeUtente;
     $sesso = $datajson->sesso;
     $email = $datajson->email;
     $dataNascita = $datajson->dataNascita;
+    $idutente = $datajson->idutente;
 
     $DB = new Database();
     $conn = $DB->connect();
-    $sql = "INSERT INTO utente(nome, cognome, sesso, email, datanascita) VALUES (?, ?, ?, ?, ?)";
+    $sql = "UPDATE utente SET nome=?, cognome=?, sesso=?, email=?, datanascita=? WHERE id=?";
+    //$stmt->execute([$name, $surname, $sex, $id]);
+    //$sql = "INSERT INTO utente(nome, cognome, sesso, email, datanascita) VALUES (?, ?, ?, ?, ?)";
     $smt = $conn->prepare($sql);
     //$smt = $DB->save($sql);
-    $smt -> execute([$nomeUtente, $cognomeUtente, $sesso, $email, $dataNascita]);
-    $idutente = $conn->lastInsertId();
+    $smt -> execute([$nomeUtente, $cognomeUtente, $sesso, $email, $dataNascita, $idutente]);
+    
 
     $tipoentita = $datajson -> entita;
     $nomeentita = $datajson -> nomeentita;
     $argomenti = $datajson -> argomenti;
     $anno = $datajson -> anno;
     $votazione = $datajson -> votazione;
+    $idesperienza = $datajson -> idesperienza;
+    
 
     $count = count($nomeentita);
+    
 
     for($i=0; $i<$count; $i++){
-        $sql = "INSERT INTO esperienze (argomenti, annofrequenza, votazione, idutente, tipoentita, nomeentita) VALUES (?, ?, ?, ?, ?, ?)";
-        $smt = $DB->save($sql);
-        $smt -> execute([$argomenti[$i], $anno[$i], $votazione[$i], $idutente, $tipoentita[$i], $nomeentita[$i]]);
+        $sql = "UPDATE esperienze SET argomenti=?, annofrequenza=?, votazione=?, idutente=?, tipoentita=?, nomeentita=? WHERE id=?";
+        $smt = $conn->prepare($sql);
+        $smt -> execute([$argomenti[$i], $anno[$i], $votazione[$i], $idutente, $tipoentita[$i], $nomeentita[$i], $idesperienza]);
     }
 
 

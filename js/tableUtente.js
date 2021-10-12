@@ -112,7 +112,14 @@ function createEsperienze(arrayEsperienze){
                                                 placeholder="Inserire il voto"
                                                 value="`+elem.votazione+`" />
                                     </div>
-                                    
+                                </div>
+
+                                <div class="form-group row">
+                                    <input type="text" 
+                                            id="idesperienza" 
+                                            name="idesperienza" 
+                                            class="hide-content" 
+                                            value="`+elem.id+`" />
                                 </div>`;
     });
 }

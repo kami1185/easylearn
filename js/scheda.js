@@ -8,6 +8,7 @@
         format: "YYYY-MM-DD"
     });
 
+    //aggiungo l'esperienze dell'utente
     document.getElementById('addExperience').addEventListener('click', function () {
 
         var i = 0;
@@ -100,10 +101,17 @@
         //     console.warn(error);
         // });
 
+        let element = document.getElementById("idutente");
+        let url = '';
+        if(typeof(element) != 'undefined' && element != null)
+            url = 'update.php';
+        else
+            url = 'register-data.php';
+
         var data = JSON.stringify($('#formUtente').serializeJSON());
 
         $.ajax({
-            url: 'register-data.php',
+            url: url,
             type: 'POST',
             dataType: 'json',
             contentType: 'application/x-www-form-urlencoded',
