@@ -1,6 +1,4 @@
     
-    
-    
 
     $('#anno').datetimepicker({
         format: "YYYY-MM-DD"
@@ -12,60 +10,60 @@
 
     document.getElementById('addExperience').addEventListener('click', function () {
 
-        // var i = 0;
-        // let original = document.getElementById('htmlExperience' + i);
-        // let clone = original.cloneNode(true); // "deep" clone
-        // clone.querySelector('.entita').value = '';
-        // clone.querySelector('.argomenti').value = '';
-        // clone.querySelector('.anno').value = '';
-        // clone.querySelector('.votazione').value = '';
-        // clone.id = "htmlExperience" + ++i; 
-        // //original.appendChild(clone);
-        // document.getElementById("divAddExperience").appendChild(clone);
+        var i = 0;
+        let original = document.getElementById('htmlExperience' + i);
+        let clone = original.cloneNode(true); // "deep" clone
+        clone.querySelector('.entita').value = '';
+        clone.querySelector('.argomenti').value = '';
+        clone.querySelector('.anno').value = '';
+        clone.querySelector('.votazione').value = '';
+        clone.id = "htmlExperience" + ++i; 
+        //original.appendChild(clone);
+        document.getElementById("divAddExperience").appendChild(clone);
         
 
-        let elements = document.getElementById('divAddExperience');
-        elements.innerHTML +=   `<div class="form-group row"> 
-                                    <label class="col-3 form-control-label" for="entita">Tipo Instituzione:</label>
-                                    <div class="col-3">
-                                        <select id="entita" name="entita[]">
-                                                <option value="1">Istituto</option>
-                                                <option value="2">Università</option>
-                                                <option value="3">Ente di formazione</option>
-                                        </select>
-                                    </div>
-                                    <label class="col-2 form-control-label" for="nomeentita">Nome Entità:</label>
-                                    <div class="col-4">
-                                        <input type="text" 
-                                            value="" 
-                                            class="form-control allow_edition" 
-                                            id="nomeentita" 
-                                            name="nomeentita[]" 
-                                            placeholder="Inserire la residenza">
-                                    </div>
-                                </div>
+        // let elements = document.getElementById('divAddExperience');
+        // elements.innerHTML +=   `<div class="form-group row"> 
+        //                             <label class="col-3 form-control-label" for="entita">Tipo Instituzione:</label>
+        //                             <div class="col-3">
+        //                                 <select id="entita" name="entita[]">
+        //                                         <option value="1">Istituto</option>
+        //                                         <option value="2">Università</option>
+        //                                         <option value="3">Ente di formazione</option>
+        //                                 </select>
+        //                             </div>
+        //                             <label class="col-2 form-control-label" for="nomeentita">Nome Entità:</label>
+        //                             <div class="col-4">
+        //                                 <input type="text" 
+        //                                     value="" 
+        //                                     class="form-control allow_edition" 
+        //                                     id="nomeentita" 
+        //                                     name="nomeentita[]" 
+        //                                     placeholder="Inserire la residenza">
+        //                             </div>
+        //                         </div>
 
-                                <div class="form-group row">
-                                    <label class="col-2 form-control-label" for="argomenti">Argomenti:</label>
-                                    <div class="col-4">
-                                        <input type="text" 
-                                            autocomplete="off" 
-                                            class="form-control allow_edition" 
-                                            id="argomenti" 
-                                            name="argomenti[]">
-                                    </div>
-                                    <label class="col-2 form-control-label" for="anno">Anno di frequenza:</label>
-                                    <div class="col-4">
-                                        <input type="text" id="anno" name="anno[]" class="form-control" placeholder="Inserire data del tampone"/>
-                                    </div>
-                                </div>
+        //                         <div class="form-group row">
+        //                             <label class="col-2 form-control-label" for="argomenti">Argomenti:</label>
+        //                             <div class="col-4">
+        //                                 <input type="text" 
+        //                                     autocomplete="off" 
+        //                                     class="form-control allow_edition" 
+        //                                     id="argomenti" 
+        //                                     name="argomenti[]">
+        //                             </div>
+        //                             <label class="col-2 form-control-label" for="anno">Anno di frequenza:</label>
+        //                             <div class="col-4">
+        //                                 <input type="text" id="anno" name="anno[]" class="form-control" placeholder="Inserire data del tampone"/>
+        //                             </div>
+        //                         </div>
 
-                                <div class="form-group row">
-                                    <label class="col-2 form-control-label" for="votazione">Votazione:</label>
-                                    <div class="col-4">
-                                        <input type="text" id="votazione" name="votazione[]" class="form-control" placeholder="Inserire data del tampone"/>
-                                    </div>
-                                </div>`;
+        //                         <div class="form-group row">
+        //                             <label class="col-2 form-control-label" for="votazione">Votazione:</label>
+        //                             <div class="col-4">
+        //                                 <input type="text" id="votazione" name="votazione[]" class="form-control" placeholder="Inserire data del tampone"/>
+        //                             </div>
+        //                         </div>`;
     });
 
     document.getElementById('formUtente').addEventListener('submit', function (e) {
@@ -114,7 +112,7 @@
             },
             success: function (data) {
 
-                alert(data);
+                //alert(data);
             }
         });
     });

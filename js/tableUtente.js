@@ -18,11 +18,21 @@ function viewUtente(id){
                 }
 
                 data.utente.forEach(elem => {
+                    let element = document.getElementById('formUtente');
+                    element.innerHTML +=   `<div class="form-group row"> 
+                                                    <input type="text"
+                                                        class="form-control hide-content" 
+                                                        id="idutente" 
+                                                        name="idutente"
+                                                        value="`+elem.id+`">
+                                            </div>`;
+                    
                     document.getElementById('nomeUtente').value = elem.nome;
                     document.getElementById('cognomeUtente').value = elem.cognome;
                     document.getElementById('sesso').value = elem.sesso;
                     document.getElementById('email').value = elem.email;
-                    document.getElementById('dataNascita').value = elem.datanascita; 
+                    document.getElementById('dataNascita').value = elem.datanascita;
+
                 });
 
                 if (data.esperienze.length > 0)
@@ -43,10 +53,13 @@ function viewUtente(id){
 
 function createEsperienze(arrayEsperienze){
 
+    const container = document.querySelector('#divAddExperience');
+    removeAllChildNodes(container);
+
     arrayEsperienze.forEach(elem => {
-        //console.log('ccc: '+ elem.argomenti)
          
         let elements = document.getElementById('divAddExperience');
+        //elements.innerHTML="";
         elements.innerHTML +=   `<div class="form-group row"> 
                                     <label class="col-3 form-control-label" for="entita">Tipo Instituzione:</label>
                                     <div class="col-3">
@@ -59,11 +72,11 @@ function createEsperienze(arrayEsperienze){
                                     <label class="col-2 form-control-label" for="nomeentita">Nome Entità:</label>
                                     <div class="col-4">
                                         <input type="text" 
-                                            value="" 
+                                            value="`+elem.nomeentita+`" 
                                             class="form-control allow_edition" 
                                             id="nomeentita" 
                                             name="nomeentita[]" 
-                                            placeholder="Inserire Instituzione">
+                                            placeholder="Inserire nome Instituzione">
                                     </div>
                                 </div>
 
@@ -75,6 +88,7 @@ function createEsperienze(arrayEsperienze){
                                             class="form-control allow_edition" 
                                             id="argomenti" 
                                             name="argomenti[]"
+                                            placeholder="Inserire argomento"
                                             value="`+elem.argomenti+`">
                                     </div>
                                     <label class="col-2 form-control-label" for="anno">Anno di frequenza:</label>
@@ -83,7 +97,7 @@ function createEsperienze(arrayEsperienze){
                                                 id="anno" 
                                                 name="anno[]" 
                                                 class="form-control" 
-                                                placeholder="Inserire l'nno di frequenza"
+                                                placeholder="Inserire l'anno di frequenza"
                                                 value="`+elem.annofrequenza+`" />
                                     </div>
                                 </div>
@@ -98,8 +112,15 @@ function createEsperienze(arrayEsperienze){
                                                 placeholder="Inserire il voto"
                                                 value="`+elem.votazione+`" />
                                     </div>
+                                    
                                 </div>`;
     });
+}
+
+function removeAllChildNodes(parent) {
+    while (parent.firstChild) {
+        parent.removeChild(parent.firstChild);
+    }
 }
 
 async function deleteUtente(id_utente)

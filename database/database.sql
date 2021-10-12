@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 11-10-2021 a las 10:38:32
+-- Tiempo de generación: 12-10-2021 a las 08:49:29
 -- Versión del servidor: 10.4.17-MariaDB
 -- Versión de PHP: 7.4.15
 
@@ -26,17 +26,6 @@ USE `easylearn`;
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `entita`
---
-
-CREATE TABLE `entita` (
-  `id` int(11) NOT NULL,
-  `nome` varchar(200) COLLATE utf8_bin DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
-
--- --------------------------------------------------------
-
---
 -- Estructura de tabla para la tabla `esperienze`
 --
 
@@ -46,8 +35,21 @@ CREATE TABLE `esperienze` (
   `annofrequenza` int(11) DEFAULT NULL,
   `votazione` int(11) DEFAULT NULL,
   `idutente` int(11) NOT NULL,
-  `identita` int(11) NOT NULL
+  `tipoentita` varchar(45) COLLATE utf8_bin NOT NULL,
+  `nomeentita` varchar(250) COLLATE utf8_bin DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+--
+-- Volcado de datos para la tabla `esperienze`
+--
+
+INSERT INTO `esperienze` (`id`, `argomenti`, `annofrequenza`, `votazione`, `idutente`, `tipoentita`, `nomeentita`) VALUES
+(35, 'chimica', 2021, 28, 69, '1', NULL),
+(36, 'fisica', 2006, 28, 69, '1', NULL),
+(38, '', 0, 0, 71, '1', NULL),
+(42, 'chimica', 2021, 28, 75, '1', NULL),
+(43, 'fisica', 2006, 28, 75, '1', NULL),
+(44, 'c#', 2021, 24, 76, 'Istituto', 'politecnico');
 
 -- --------------------------------------------------------
 
@@ -69,21 +71,14 @@ CREATE TABLE `utente` (
 --
 
 INSERT INTO `utente` (`id`, `nome`, `cognome`, `sesso`, `email`, `datanascita`) VALUES
-(21, 'andres camilo', 'eraso', 'asdfsd', 'acde100@gmail.com', '2021-10-13'),
-(22, 'andres camilo', 'duarte eraso', 'm', 'acde100@gmail.com', '2021-10-12'),
-(23, 'andres camilo', 'eraso', 'ffffffffffff', 'acde100@gmail.com', '2021-10-20'),
-(24, 'andres camilo', 'eraso', 'asfds', 'acde100@gmail.com', '2021-10-27'),
-(25, 'andres camilo', 'eraso', 'adsfads', 'acde100@gmail.com', '2021-10-20');
+(69, 'andres camilo', 'eraso', 'asdf', 'acde100@gmail.com', '2021-10-11'),
+(71, 'karen', 'munoz', 'f', 'karen@gmail.com', '2021-10-25'),
+(75, 'andres camilo', 'duarte eraso', 'asdf', 'acde100@gmail.com', '2021-10-11'),
+(76, 'Alberto', 'Firenze', 'asdfds', 'alberto@gmail.it', '2021-10-12');
 
 --
 -- Índices para tablas volcadas
 --
-
---
--- Indices de la tabla `entita`
---
-ALTER TABLE `entita`
-  ADD PRIMARY KEY (`id`);
 
 --
 -- Indices de la tabla `esperienze`
@@ -102,22 +97,16 @@ ALTER TABLE `utente`
 --
 
 --
--- AUTO_INCREMENT de la tabla `entita`
---
-ALTER TABLE `entita`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
---
 -- AUTO_INCREMENT de la tabla `esperienze`
 --
 ALTER TABLE `esperienze`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
 
 --
 -- AUTO_INCREMENT de la tabla `utente`
 --
 ALTER TABLE `utente`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=77;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
